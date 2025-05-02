@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09 Exercise</title>
+</head>
+<body>
+  <!--
+  <button>9a</button>
+  <button class ="but2">9b</button>
+  
+  <button class ="heads" onclick="
+  document.querySelector('.chose').innerHTML='You choose: heads'">heads</button>
+  <button class = "tails" onclick="
+  document.querySelector('.chose').innerHTML='You choose: tails'">tails</button>
+  <p class="chose"></p>
+-->
+  <input class="userInput" type="text" placeholder='Name' onkeydown="pressEnter()
+  console.log('Typing')">
+  <button class="submit" onclick ="jsName()">Submit</button>
+  <p class ="name"></p>
+  <script>  
+    /*
+    console.log(document.querySelector('button'));
+    console.log(document.querySelector('.but2').innerHTML='9b done!')
+    */
+   function pressEnter() {
+    if (event.key === 'Enter'){
+      jsName();
+    }
+
+   }
+
+   function jsName(){
+    let userInput = document.querySelector('.userInput').value;
+    document.querySelector('.name').innerHTML = `Your name is: ${userInput}`;
+   }
+   
+    
+  </script>
+</body>
+</html>
