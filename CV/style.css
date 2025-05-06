@@ -51,14 +51,15 @@ html, body {
   font-weight: 500;
 }
 #navigation-bar button:hover {
-    /* Nền đổi màu */
+   
   color: #949393;            /* Chữ đổi màu */
 }
 #body{
   display: flex;
   flex-direction: row;
   width:100%;
-  height:auto;
+  height:100%;  
+  background-color:#1f2020
 }
 #left-body{
   width:40vw;
@@ -112,6 +113,93 @@ html, body {
   right:0vw;
   color: white;
 }
+/* Personal Detail page*/
+#personal-detail-right-body{
+  width:100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  font-size: 1.5rem;
+}
+
+#personal-detail-right-body p{
+  color: white;
+  font-family: none;
+  
+}
+#title{
+  font-size: 4rem;
+  margin-bottom: 1.5vh;
+  
+}
+
+#personal-detail-right-body a{
+  text-decoration: none;
+  color: aquamarine;
+}
+#detail-container{
+  margin-top: 10vh;
+  margin-left: 3vw;
+}
+#contact-container{
+  margin-top: 8vh;
+  margin-left: 29vw;
+}
+/*  Education */
+#left-image-container{
+  width:22vw;
+     
+}
+#left-image{
+  width:100%;
+  height:auto;
+}
+#right-image-container{
+  width: 22vw;
+  margin-left: 0.5vw;
+  margin-top: 10vh;
+}
+#right-image{
+  width: 100%;
+  height: 100%;
+  height: auto;
+}
+
+/*Education page*/
+#educationTable{
+width:45vw;
+height:auto;
+margin-left: 5vw;
+margin-top: 25vh;
+}
+
+/*ô bao bên ngoài*/
+#MyTable{  
+ width: 100%;
+ height:auto;
+ color:white;
+ border: 1px solid white;
+ border-collapse: collapse;
+ text-align: left;
+}
+/*Ô từng phần*/
+#MyTable td, #MyTable th {
+  border: 1px solid white;
+  padding: 8px;
+}
+#educationTable p{
+  font-size:5rem;
+  margin-bottom: 3vh;
+  color: white;
+}
+#educationTable tr :hover{
+  background-color: #636363;
+}
+
+
+
 @media (max-width: 600px) {
   #body {
     flex-direction: column;
