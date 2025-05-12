@@ -75,13 +75,78 @@ const educationContent =`
     </div>
 `;
 
+const experiences = [
+  {
+    image: "image/DSC04184.jpg",
+    title: "Experience 1",
+    description: "Description for experience 1"
+  },
+  {
+    image: "image/IMG_1522.JPG",
+    title: "Experience 2",
+    description: "Description for experience 2"
+  },
+  {
+    image: "image/IMG_1534.JPG",
+    title: "Experience 3",
+    description: "Description for experience 3"
+  }
+];
+
+let currentExperienceIndex = 0;
+
 const experienceContent = `
-  <h2>Experience</h2>
-  <ul>
-    <li>Intern at FPT Software – Web Development</li>
-    <li>Freelancer – Front-end Projects (HTML, CSS, JS)</li>
-  </ul>
+  <div id="experience-container">
+    <div id="experience-image">
+      <img src="${experiences[0].image}" alt="Experience Image">
+    </div>
+    <div id="experience-content">
+      <h2>${experiences[0].title}</h2>
+      <p>${experiences[0].description}</p>
+      <div class="experience-controls">
+        <button id="prevBtn">Previous</button>
+        <button id="nextBtn">Next</button>
+      </div>
+    </div>
+  </div>
 `;
+
+// Function to update experience content
+function updateExperience() {
+  const expContainer = document.getElementById("experience-container");
+  if (expContainer) {
+    expContainer.innerHTML = `
+      <div id="experience-image">
+        <img src="${experiences[currentExperienceIndex].image}" alt="Experience Image">
+      </div>
+      <div id="experience-content">
+        <h2>${experiences[currentExperienceIndex].title}</h2>
+        <p>${experiences[currentExperienceIndex].description}</p>
+        <div class="experience-controls">
+          <button id="prevBtn">Previous</button>
+          <button id="nextBtn">Next</button>
+        </div>
+      </div>
+    `;
+    setupExperienceControls();
+  }
+}
+
+// Function to setup experience controls
+function setupExperienceControls() {
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  prevBtn.onclick = () => {
+    currentExperienceIndex = (currentExperienceIndex - 1 + experiences.length) % experiences.length;
+    updateExperience();
+  };
+
+  nextBtn.onclick = () => {
+    currentExperienceIndex = (currentExperienceIndex + 1) % experiences.length;
+    updateExperience();
+  };
+}
 
 // Xử lý khi bấm nút
 document.getElementById("home").onclick = () => {
@@ -98,6 +163,7 @@ document.getElementById("education").onclick = () => {
 
 document.getElementById("experience").onclick = () => {
   bodyContainer.innerHTML = experienceContent;
+  setupExperienceControls();
 };
 
 // Hiển thị mặc định trang Home khi load lần đầu
