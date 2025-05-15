@@ -8,13 +8,17 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Ngăn không cho scroll */
+ /* overflow: hidden; /* Ngăn không cho scroll */
   font-size: 1vw;
+  background-color: #1f2020;
 }
 
 #container{
   width: 100vw;
   height:100vh;
+  padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
 }
 
 #header{
@@ -27,7 +31,7 @@ html, body {
   justify-content: space-between;
   background-color: #2d2d2d;
   width: 100%;
-  height: 10vh;
+  min-height: 10vh;
 }
 
 #name{
@@ -59,16 +63,26 @@ html, body {
   flex-direction: row;
   width:100%;
   height:100%;  
-  background-color:#1f2020
+  background-color:#1f2020;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
 }
 #left-body{
   width:40vw;
-  height:100vh;
+  height:90vh;
   background-color:#1f2020;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #myImage{
   width:100%;
-  height:auto;
+  height:100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 #right-body{
@@ -80,7 +94,7 @@ html, body {
   background-color: #1f2020;
 }
 #right-body p{ 
-  font-family: "Inter", sans-serif;
+ 
   color: white;
  
 }
@@ -130,9 +144,8 @@ html, body {
   
 }
 #title{
-  font-size: 4rem;
+  font-size: 2rem;
   margin-bottom: 1.5vh;
-  
 }
 
 #personal-detail-right-body a{
@@ -140,31 +153,92 @@ html, body {
   color: aquamarine;
 }
 #detail-container{
-  margin-top: 10vh;
-  margin-left: 3vw;
+  margin-top: 5vh;
+  margin-left: 2vw;
+  margin-bottom: 3vh;
 }
 #contact-container{
   margin-top: 8vh;
   margin-left: 29vw;
 }
+
+#professional-container{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  margin-left: 2vw;
+}
+#skill-container, #ranking-container {
+  width: 45%;
+  height: auto;
+  margin-right: 2vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #3d3d3d;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.skill {
+  height: 100%;
+  background: linear-gradient(90deg, rgb(0, 150, 145) 0%, rgb(0, 180, 175) 100%);
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out;
+}
+
+#professional-container p {
+  color: white;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+
+
 /*  Education */
 #left-image-container{
   width:22vw;
-     
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+#left-image-container:hover {
+  transform: scale(1.02);
 }
 #left-image{
   width:100%;
-  height:auto;
+  height:100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 #right-image-container{
   width: 22vw;
   margin-left: 0.5vw;
   margin-top: 10vh;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+#right-image-container:hover {
+  transform: scale(1.02);
 }
 #right-image{
   width: 100%;
   height: 100%;
-  height: auto;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
 /*Education page*/
@@ -194,7 +268,7 @@ margin-top: 25vh;
   margin-bottom: 3vh;
   color: white;
 }
-#educationTable tr :hover{
+#MyTable tr :hover{
   background-color: #636363;
 }
 
@@ -211,13 +285,20 @@ margin-top: 25vh;
   flex: 1;
   height: 100%;
   overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  margin: 2rem;
 }
 
 #experience-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.5s ease;
+}
+
+#experience-image:hover img { /*Hover to zoom*/
+  transform: scale(1.05);
 }
 
 #experience-content {
@@ -264,6 +345,97 @@ margin-top: 25vh;
   color: #2d2d2d;
 }
 
+/* Footer styles */
+#footer {
+  bottom: 0;
+  width: 100%;
+  background-color: #2d2d2d;
+  padding: 2rem 0 1rem 0;
+  z-index: 1000;
+  margin-top:5vh;
+  
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+}
+
+.footer-section {
+  flex: 1;
+  padding: 0 1rem;
+  max-width: 300px;
+}
+
+.footer-section h3 {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-nav a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-info a, .contact-info p {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover,
+.contact-info a:hover,
+.social-links a:hover {
+  color: #949393;
+}
+
+.social-links span {
+  color: #949393;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #949393;
+  font-size: 0.8rem;
+}
+
 /* Add responsive styles */
 @media (max-width: 600px) {
   #body {
@@ -273,6 +445,7 @@ margin-top: 25vh;
   #left-body{
     width:100%;
     height:auto;
+    padding: 1rem;
   }
   #right-body{
     position: relative;
@@ -299,5 +472,86 @@ margin-top: 25vh;
   #experience-image, #experience-content {
     width: 100%;
   }
+    .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    padding: 1rem 0.5rem;
+  }
+
+  .footer-section {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+
+  .footer-nav, .contact-info {
+    align-items: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  #left-image-container, #right-image-container {
+    width: 90%;
+    margin: 1rem auto;
+  }
+
+  #experience-image {
+    margin: 1rem;
+  }
+}
+
+/* Add gradient overlay to images */
+#left-body::after,
+#experience-image::after,
+#left-image-container::after,
+#right-image-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(31, 32, 32, 0.2), rgba(31, 32, 32, 0.4));
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Personal detail page image improvements */
+#left-body img[src*="fintech_avatar"] {
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s ease;
+}
+
+#left-body img[src*="fintech_avatar"]:hover {
+  transform: scale(1.05);
+}
+
+/* Add fade effect classes */
+.fade-out {
+  opacity: 0 !important;
+}
+
+.fade-in {
+  opacity: 1 !important;
+}
+
+/* Preload images */
+.preload-images {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
