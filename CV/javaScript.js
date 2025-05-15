@@ -136,12 +136,12 @@ const experiences = [
   },
   
   {
-    image: "image/IMG_1812.jpg",
+    image: "./image/IMG_1812.jpg",
     title: "42Km Finisher Of Techcombank International Marathon 2024",
     description: "Successfully completed a full 42km marathon, demonstrating strong discipline, mental resilience, and long-term goal commitment. The journey required consistent training, focus, and the ability to overcome physical and mental limits—skills that I apply to both personal and academic challenges."
   },
   {
-    image: "image/DSC04184.jpg",
+    image: "./image/DSC04184.jpg",
     title: "Finisher Fansipan Climbing",
     description: "Successfully reached the summit of Fansipan, the highest mountain in Vietnam (3,147m). The climb tested my physical endurance, mental strength, and determination. It also deepened my appreciation for nature and taught me the value of persistence and teamwork in challenging environments."
   }
@@ -150,16 +150,18 @@ const experiences = [
 let currentExperienceIndex = 0;
 
 const experienceContent = `
-  <div id="experience-container">
-    <div id="experience-image">
-      <img src="${experiences[0].image}" alt="Experience Image">
-    </div>
-    <div id="experience-content">
-      <h2>${experiences[0].title}</h2>
-      <p>${experiences[0].description}</p>
-      <div class="experience-controls">
-        <button id="prevBtn">Previous</button>
-        <button id="nextBtn">Next</button>
+  <div id="body">
+    <div id="experience-container">
+      <div id="experience-image">
+        <img src="${experiences[0].image}" alt="Experience Image" onerror="console.log('Image failed to load:', this.src)">
+      </div>
+      <div id="experience-content">
+        <h2>${experiences[0].title}</h2>
+        <p>${experiences[0].description}</p>
+        <div class="experience-controls">
+          <button id="prevBtn">Previous</button>
+          <button id="nextBtn">Next</button>
+        </div>
       </div>
     </div>
   </div>
@@ -171,7 +173,7 @@ function updateExperience() {
   if (expContainer) {
     expContainer.innerHTML = `
       <div id="experience-image">
-        <img src="${experiences[currentExperienceIndex].image}" alt="Experience Image">
+        <img src="${experiences[currentExperienceIndex].image}" alt="Experience Image" onerror="console.log('Image failed to load:', this.src)">
       </div>
       <div id="experience-content">
         <h2>${experiences[currentExperienceIndex].title}</h2>
@@ -235,6 +237,7 @@ document.getElementById("footer-education").onclick = () => {
 
 document.getElementById("footer-experience").onclick = () => {
   bodyContainer.innerHTML = experienceContent;
+  setupExperienceControls();
 };
 
 // Hiển thị mặc định trang Home khi load lần đầu
